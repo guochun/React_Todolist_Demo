@@ -50,11 +50,11 @@ class TodoList extends Component {
 
   handleInputChange(e) {
 
-    const inputValue =  e.target.value;
-    this.setState(()=>({
+    const inputValue = e.target.value;
+    this.setState(() => ({
       inputValue
     }));
-  
+
   }
 
   handleClick() {
@@ -62,7 +62,7 @@ class TodoList extends Component {
       inputValue: '',
       list: [...prevState.list, prevState.inputValue],
     }));
-    
+
   }
 
   handleItemDelete(index) {
