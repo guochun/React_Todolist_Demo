@@ -18,7 +18,10 @@ class TodoItem extends Component {
       </li>
     )
   }
-
+  
+  shouldComponentUpdate(nextProps, nextStates) {
+    return nextProps.content !== this.props.content;
+  }
   deleteItem() {
 
     const {deleteItem, index} = this.props;
@@ -27,7 +30,7 @@ class TodoItem extends Component {
 }
 
 TodoItem.propTypes = {
-  content: PropTypes.string,
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   index: PropTypes.number,
   deleteItem: PropTypes.func,
   test: PropTypes.string.isRequired,
