@@ -8,6 +8,12 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
 
+  if(action.type === actionType.INIT_TODO_LIST) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.list = action.data
+    return newState;
+  }
+
   if(action.type === actionType.CHANGE_INPUT_VALUE) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.inputValue = action.value;
